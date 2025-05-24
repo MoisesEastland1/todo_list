@@ -11,3 +11,54 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+
+h1 {
+  font-size: 10rem;
+  color: rgb(0, 0, 225);
+}
+
+.form {
+  max-width: 100%;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.input {
+  width: 100%;
+  border: solid 1px red;
+  font-size: 3rem;
+  padding: 1rem 2rem;
+  display: block;
+}
+
+.input::placeholder {
+  color: #d5d5d5;
+}
+
+.input:focus {
+  outline-color: rgb(0, 0, 225);
+}
+
+.todos {
+  background-color: #fff;
+  padding: 0;
+  list-style-type: none;
+}
+
+.todos li  {
+  border-top: 1px solid #e5e5e5;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.todos li.comleted {
+  color: #b6b6b6;
+  text-decoration: line-through;
+}
+
+small {
+  color: #b5b5b5;
+  margin-top: 3rem;
+  text-align: center;
+}
