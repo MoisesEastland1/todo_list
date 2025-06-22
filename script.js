@@ -4,6 +4,13 @@
 /*delete under from user with a button */
 const form = document.getElementById('form');
 const input = document.getElementById('input');
-const todosUl = document.getElememtById('todos');
+//const todosUl = document.getElememtById('todos');
 
-const todos = JSON.parse(localStorage.getItem('todos'))
+//const todos = JSON.parse(localStorage.getItem('todos'))
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  console.log('form submitted');
+
+  /* todo function here*/
+})
