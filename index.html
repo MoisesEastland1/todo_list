@@ -12,14 +12,27 @@
 </head>
 <body>
   <h1>Todo-List</h1>
-  <form id="form">
-    <input type="text" class="input" id="input" placeholder="Enter your task here..." autocomplete="off">
-    <ul class="todos" id="todos">
-      <li>
+    <div class="container">
+          <form id="form">
+    <input type="text" id="input" placeholder="Enter your task here..." autocomplete="off">
+    <button type="submit" class="btn" id="submit">Submit</button>
+  </form>
 
+  <ul class="todos" id="todos">
+      <li>
+        todo entry #1
+      </li>
+
+      <li>
+        todo entry #2
+      </li>
+      
+      <li>
+        todo entry #3
       </li>
     </ul>
-  </form>
+    </div>
+
   <script src="script.js"></script>
 </body>
 </html>
