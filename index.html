@@ -11,16 +11,27 @@
   <title>Todo-List</title>
 </head>
 <body>
-  <h1>Todo-List</h1>
     <div class="container">
+
+      <h1>Todo-List</h1>
+
           <form id="form">
-    <input type="text" id="input" placeholder="Enter your task here..." autocomplete="off">
-    <button type="submit" class="btn" id="submit">Submit</button>
+    <input type="text" class="input" id="input" placeholder="Enter your task here..." autocomplete="off">
+    <button type="submit" class="btn" id="btn">Add</button>
   </form>
 
-  <ul class="todos" id="todos">
-      <li>
-        todo entry #1
+  <ul class="todo-entry" id="todos-entry">
+      <li class="completed">
+        <input type="checkbox" id="todo-check">
+        <label class="todo-check" for="todo-check">
+          <!--svg or fontawesome icon-->
+        </label>
+        <label for="todo-check" class="todo-entry2">
+          todo entry #1
+        </label>
+        <button class="delete-button">
+          <!--svg or fontawesome-->
+        </button>
       </li>
 
       <li>
