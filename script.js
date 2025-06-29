@@ -4,7 +4,7 @@
 /*delete under from user with a button */
 const form = document.getElementById('form');
 const input = document.getElementById('input');
-//const todosUl = document.getElememtById('todos');
+//const todosUl = document.getElememtById('todo-entry');
 
 //const todos = JSON.parse(localStorage.getItem('todos'))
 
