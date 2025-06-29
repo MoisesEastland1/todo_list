@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/157b76dc84.js" crossorigin="anonymous"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -20,26 +21,36 @@
     <button type="submit" class="btn" id="btn">Add</button>
   </form>
 
-  <ul class="todo-entry" id="todos-entry">
-      <li class="completed">
+  <ul class="todo-list" id="todo-list">
+    <!--Fix Todo issue-->
+      <li class="todo-entry completed">
         <input type="checkbox" id="todo-check">
-        <label class="todo-check" for="todo-check">
+        <label class="custom-check" for="todo-check">
           <!--svg or fontawesome icon-->
+          <i class="fa-solid fa-circle-check"></i>
         </label>
-        <label for="todo-check" class="todo-entry2">
+        <label for="todo-check" class="todo-text">
           todo entry #1
         </label>
-        <button class="delete-button">
+        <button class="d-btn" id="d-btn">
           <!--svg or fontawesome-->
+          <i class="fa-regular fa-trash-can"></i>
         </button>
       </li>
 
-      <li>
-        todo entry #2
-      </li>
-      
-      <li>
-        todo entry #3
+      <li class="todo-entry">
+        <input type="checkbox" id="todo-check2">
+        <label class="custom-check" for="todo-check2">
+          <!--svg or fontawesome icon-->
+          <i class="fa-solid fa-circle-check"></i>
+        </label>
+        <label for="todo-check2" class="todo-text">
+          todo entry #2
+        </label>
+        <button class="d-btn">
+          <!--svg or fontawesome-->
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
       </li>
     </ul>
     </div>
