@@ -1,7 +1,7 @@
 * {
   font-family: 'Oswald';
   margin: 0;
-  
+  padding: 0;
 }
 
 
@@ -19,16 +19,34 @@
 h1 {
   padding-bottom: 100px;
   font-size: 10rem;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 
 form {
   border: 1px solid red;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
 }
 
 .input {
-  border-radius: 20px;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  width: 200px;
+  font: inherit;
 }
 
 .input::placeholder {
@@ -39,17 +57,73 @@ form {
   outline-color: blue;
 }
 
-.todo-entry {
-  list-style-type: none;
-  padding: 0;
-}
-
-.todo-entry li {
+.btn {
+  padding: 5px 15px;
+  width: 30%;
+  border-radius: 10px;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
-.todo-entry li.completed {
+.todo-list {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.todo-entry{
+  border: 1px solid red;
+  width: 300px;
+  list-style-type: none;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.todo-entry.completed {
   text-decoration: line-through;
+  border: 1px solid red;
+  
+}
+
+.todo-text {
+  cursor: pointer;
+}
+
+.custom-check {
+  font-size: 1.2rem;
+  color: green;
+}
+
+.d-btn {
+  font-size: 1.5rem;
+  padding: 0;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+.d-btn:hover {
+  color: #ff0033;
+}
+
+.custom-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 
+input[type="checkbox"] {
+  display: none;
+}
