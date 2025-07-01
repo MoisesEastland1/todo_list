@@ -22,7 +22,7 @@ form.addEventListener('submit', (e) => {
   
 })
 
-//this the inner workings of the add todo function
+//this the inner workings of the add todo input to array function
 function addTodo() {
   // the input value is known as todoInputText w/ trimmed whitespace via trim method
   const todoInputText = input.value.trim();
@@ -32,11 +32,24 @@ function addTodo() {
 
     //pushing input value into the todo array
   allTodosArr.push(todoInputText);
-
   
+  //this the create todo function at play
+  createTodoEntry(todoInputText);
+
   //identifing and empty todo values
   todoInputText.value = "";
   }
   
   console.log(allTodosArr);
+  }
+
+  //this the inner working of the "create" function
+  function createTodoEntry(todo) {
+    //intialize todoEntry w/ createElement method now list item is known as todoEntry
+    const todoEntry = document.createElement('li');
+
+    //rendering todoEntry w/ todo (input.value)
+    todoEntry.innerText = todo;
+    //writting todoEntry value in the todoList (unordered list)
+    todoList.append(todoEntry);
   }
