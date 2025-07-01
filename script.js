@@ -33,14 +33,28 @@ function addTodo() {
     //pushing input value into the todo array
   allTodosArr.push(todoInputText);
   
-  //this the create todo function at play
-  createTodoEntry(todoInputText);
+  //calling  the update function to update array w/ todo and index position
+  updateTodoList()
 
   //identifing and empty todo values
   todoInputText.value = "";
   }
   
   console.log(allTodosArr);
+  }
+
+  function updateTodoList() {
+    //clear todoList (unoredered list) w/ empty string
+    todoList.innerHTML = "";
+    //Looping through array for todos and their index position
+    allTodosArr.forEach((todo, todoIndex)=> {
+
+      //creating todoEntry w/ "create" function and assigning todo it's index
+      todoEntry = createTodoEntry(todo, todoIndex);
+
+      //writting todoEntry (list item) value in the todoList (unordered list)
+    todoList.append(todoEntry);
+    })
   }
 
   //this the inner working of the "create" function
@@ -50,6 +64,7 @@ function addTodo() {
 
     //rendering todoEntry w/ todo (input.value)
     todoEntry.innerText = todo;
-    //writting todoEntry value in the todoList (unordered list)
-    todoList.append(todoEntry);
+    
+    //returning todoEntry (list item) to update 
+    return todoEntry;
   }
