@@ -36,6 +36,8 @@ function addTodo() {
   //calling  the update function to update array w/ todo and index position
   updateTodoList()
 
+
+  saveTodos();
   //identifing and empty todo values
   todoInputText.value = "";
   }
@@ -49,7 +51,7 @@ function addTodo() {
     //Looping through array for todos and their index position
     allTodosArr.forEach((todo, todoIndex)=> {
 
-      //creating todoEntry w/ "create" function and assigning todo it's index
+      //creating todoEntry w/ "create" function and assigning todo a index
       todoEntry = createTodoEntry(todo, todoIndex);
 
       //writting todoEntry (list item) value in the todoList (unordered list)
@@ -57,14 +59,43 @@ function addTodo() {
     })
   }
 
-  //this the inner working of the "create" function
-  function createTodoEntry(todo) {
+  //this is the inner working of the "create" function
+  function createTodoEntry(todo, todoIndex) {
     //intialize todoEntry w/ createElement method now list item is known as todoEntry
     const todoEntry = document.createElement('li');
 
+    const todoID = "todo-"+todoIndex;
     //rendering todoEntry w/ todo (input.value)
-    todoEntry.innerText = todo;
+    /*todoEntry.innerText = todo;*/
+
+    todoEntry.className = "todo";
+
+
+    todoEntry.innerHTML = `
+    
+    <li class="todo-entry ">
+        <input type="checkbox" id="${todoID}">
+        <label class="custom-check" for="${todoID}">
+
+          <i class="fa-solid fa-circle-check"></i>
+        </label>
+        <label for="${todoID}" class="todo-text">
+          ${todo}
+        </label>
+        <button class="d-btn" id="d-btn">
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
+      </li>
+
+    `
     
     //returning todoEntry (list item) to update 
     return todoEntry;
   }
+
+  function saveTodos() {
+    const todosJson = JSON.stringify(allTodosArr);
+    localStorage.setItem("todos", todosJson);
+  }
+
+  
