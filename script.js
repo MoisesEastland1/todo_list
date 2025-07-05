@@ -6,7 +6,7 @@ const input = document.getElementById('input');
 const todoList = document.getElementById('todo-list');
 
 
-//const todos = JSON.parse(localStorage.getItem('todos'))
+
 
 //this the Todo Array initialized where input values will go
 let allTodosArr = [];
@@ -22,7 +22,7 @@ form.addEventListener('submit', (e) => {
   
 })
 
-//this the inner workings of the add todo input to array function
+//this the inner workings of the "add" todo input to array function
 function addTodo() {
   // the input value is known as todoInputText w/ trimmed whitespace via trim method
   const todoInputText = input.value.trim();
@@ -33,15 +33,16 @@ function addTodo() {
     //pushing input value into the todo array
   allTodosArr.push(todoInputText);
   
-  //calling  the update function to update array w/ todo and index position
+  //calling the "update" function to update array w/ todo and index position
   updateTodoList()
 
-
+  //calling the "save" function to  save todos to local storage
   saveTodos();
+
   //identifing and empty todo values
   todoInputText.value = "";
   }
-  
+  //console logging the todo array to view in local storage(will be deleting soon)
   console.log(allTodosArr);
   }
 
@@ -64,13 +65,13 @@ function addTodo() {
     //intialize todoEntry w/ createElement method now list item is known as todoEntry
     const todoEntry = document.createElement('li');
 
+    //initializing todoID to todoEntry for todo's Index
     const todoID = "todo-"+todoIndex;
     //rendering todoEntry w/ todo (input.value)
     /*todoEntry.innerText = todo;*/
 
     todoEntry.className = "todo";
-
-
+    //Injecting the CSS rules for the todoEntry and adding ID values to the todo index
     todoEntry.innerHTML = `
     
     <li class="todo-entry ">
@@ -92,9 +93,13 @@ function addTodo() {
     //returning todoEntry (list item) to update 
     return todoEntry;
   }
-
+  //This is the inner workings of the "save" function
   function saveTodos() {
+
+    //initalizing the JSON stringify method to stringify the todos arrays in todosJSON
     const todosJson = JSON.stringify(allTodosArr);
+
+    //Using setItem  to save todos to local storage
     localStorage.setItem("todos", todosJson);
   }
 
