@@ -33,7 +33,7 @@ function addTodo() {
   if(todoInputText.length > 0) {
 
     //pushing input value into the todo array
-  allTodosArr.push(todoInputText);
+  allTodosArr.push({text: todoInputText, completed: false});
   
   //calling the "update" function to update array w/ todo and index position
   updateTodoList()
@@ -42,7 +42,7 @@ function addTodo() {
   saveTodos();
 
   //identifing and empty todo values
-  todoInputText.value = "";
+  input.value = "";
   }
   //console logging the todo array to view in local storage(will be deleting soon)
   console.log(allTodosArr);
@@ -75,24 +75,30 @@ function addTodo() {
     //identifing todo entry by className  as "todo"
     todoEntry.className = "todo";
 
+    const completedID = todo.completed ? "completed" : "";
+
     //Injecting the CSS rules for the todoEntry and adding ID values to the todo index
     todoEntry.innerHTML = `
     
-    <li class="todo-entry ">
+    <li class="todo-entry ${completedID}">
         <input type="checkbox" id="${todoID}">
         <label class="custom-check" for="${todoID}">
 
           <i class="fa-solid fa-circle-check"></i>
         </label>
         <label for="${todoID}" class="todo-text">
-          ${todo}
+          ${todo.text}
         </label>
         <button class="d-btn" id="d-btn">
           <i class="fa-regular fa-trash-can"></i>
         </button>
       </li>
-
     `
+    const checkbox = todoEntry.querySelector(`#${todoID}`);
+    checkbox.addEventListener("change", () => {
+      toggleTodo(todoIndex);
+    });
+
     //this  is the inner workings of the "delete" function
     const deleteButton = todoEntry.querySelector(".d-btn");
 
@@ -114,6 +120,12 @@ function addTodo() {
 
     //Using setItem  to save todos to local storage
     localStorage.setItem("todos", todosJson);
+  }
+
+  function toggleTodo(todoIndex) {
+    allTodosArr[todoIndex].completed = !allTodosArr[todoIndex].completed;
+    saveTodos();
+    updateTodoList();
   }
 
   function deleteTodoEntry(todoIndex) {
