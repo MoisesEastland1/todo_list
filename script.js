@@ -9,7 +9,9 @@ const todoList = document.getElementById('todo-list');
 
 
 //this the Todo Array initialized where input values will go
-let allTodosArr = [];
+let allTodosArr = getTodos();
+console.log(allTodosArr);
+updateTodoList();
 
 //this the Event Listener for submitting input values
 form.addEventListener('submit', (e) => {
@@ -70,7 +72,9 @@ function addTodo() {
     //rendering todoEntry w/ todo (input.value)
     /*todoEntry.innerText = todo;*/
 
+    //identifing todo entry by className  as "todo"
     todoEntry.className = "todo";
+
     //Injecting the CSS rules for the todoEntry and adding ID values to the todo index
     todoEntry.innerHTML = `
     
@@ -89,7 +93,16 @@ function addTodo() {
       </li>
 
     `
-    
+    //this  is the inner workings of the "delete" function
+    const deleteButton = todoEntry.querySelector(".d-btn");
+
+    //this the event listener for the delete button
+    deleteButton.addEventListener("click", () =>{
+
+      //deleting todo entry by index using "delete" function
+      deleteTodoEntry(todoIndex);
+    })
+
     //returning todoEntry (list item) to update 
     return todoEntry;
   }
@@ -101,6 +114,20 @@ function addTodo() {
 
     //Using setItem  to save todos to local storage
     localStorage.setItem("todos", todosJson);
+  }
+
+  function deleteTodoEntry(todoIndex) {
+    //filtering todo array
+    allTodosArr = allTodosArr.filter((_, i) => i !== todoIndex);
+    saveTodos();
+    updateTodoList();
+  }
+
+  function getTodos() {
+    //setting todos to get item in local storage w/ a condition to identify an empty array
+    const todos = localStorage.getItem("todos") || "[]";
+    //returning todos parsed through JSON
+    return JSON.parse(todos);
   }
 
   
