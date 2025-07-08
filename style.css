@@ -69,30 +69,32 @@ form {
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
+  list-style-type: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .todo-entry{
   border: 1px solid red;
   width: 300px;
-  list-style-type: none;
+  
   padding: 5px 10px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.todo-entry.completed {
+.todo-entry.completed  {
   text-decoration: line-through;
   border: 1px solid red;
   
 }
 
-.todo-text {
+.todo-text{
   cursor: pointer;
+ 
 }
 
 .custom-check {
