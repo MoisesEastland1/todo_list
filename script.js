@@ -83,7 +83,6 @@ function addTodo() {
     <li class="todo-entry ${completedID}">
         <input type="checkbox" id="${todoID}">
         <label class="custom-check" for="${todoID}">
-
           <i class="fa-solid fa-circle-check"></i>
         </label>
         <label for="${todoID}" class="todo-text">
