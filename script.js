@@ -69,8 +69,7 @@ function addTodo() {
 
     //initializing todoID to todoEntry for todo's Index
     const todoID = "todo-"+todoIndex;
-    //rendering todoEntry w/ todo (input.value)
-    /*todoEntry.innerText = todo;*/
+    
 
     //identifing todo entry by className  as "todo"
     todoEntry.className = "todo";
